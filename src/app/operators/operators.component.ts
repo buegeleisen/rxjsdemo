@@ -18,7 +18,7 @@ import {
   styleUrls: ['./operators.component.scss']
 })
 export class OperatorsComponent implements OnInit{
-
+  items: any[] = [];
   constructor() {
   }
 
@@ -62,7 +62,7 @@ export class OperatorsComponent implements OnInit{
     const distinctObs = from(['A', 'A', 'B', 'C', 'C', 'D']).pipe(distinct());
 
 
-    //COMBINATION
+    //JOIN CREATION
     //combineLatestWith
     const combineLatestObs = obs1Delayed$.pipe(
       combineLatestWith(obs2Delayed$),
@@ -102,7 +102,9 @@ export class OperatorsComponent implements OnInit{
 
 
 
-    errorObs2.subscribe(x => console.log(x));
+    mapObs.subscribe((x) => {
+      this.items.push(x);
+    });
   }
 
 }
