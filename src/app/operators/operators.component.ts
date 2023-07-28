@@ -102,7 +102,7 @@ export class OperatorsComponent implements OnInit{
 
 
 
-    mapObs.subscribe((x) => {
+    forkJoinObs.subscribe((x) => {
       this.items.push(x);
     });
   }
